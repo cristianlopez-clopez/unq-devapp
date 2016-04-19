@@ -1,0 +1,4 @@
+src/wicket-spring-hib/.project
+src/wicket-spring-hib/.classpath
+src/wicket-spring-hib/target/**
+*.prefs
