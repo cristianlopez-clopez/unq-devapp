@@ -3,3 +3,4 @@ src/spring-hibernate/.classpath
 src/spring-hibernate/target/**
 *.prefs
 src/spring-hibernate/logapp.log
+src/cxf/target/**
