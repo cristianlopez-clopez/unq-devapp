@@ -1,5 +1,5 @@
-src/wicket-spring-hib/.project
-src/wicket-spring-hib/.classpath
-src/wicket-spring-hib/target/**
+src/spring-hibernate/.project
+src/spring-hibernate/.classpath
+src/spring-hibernate/target/**
 *.prefs
-src/wicket-spring-hib/logapp.log
+src/spring-hibernate/logapp.log
