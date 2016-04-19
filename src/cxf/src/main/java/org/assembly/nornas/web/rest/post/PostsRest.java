@@ -27,6 +27,10 @@ public class PostsRest {
 
     public static final int NUMBER_OF_POST = 10;
 
+    /**
+     * IMPORTANTE!! - Acá deben inyectar el servicio de la aplicación y este
+     * servicio REST solo debe hacer un delegate simple.
+     */
     private PostRepository postRepository;
 
     @GET
