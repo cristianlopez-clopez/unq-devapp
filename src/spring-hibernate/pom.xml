@@ -261,7 +261,7 @@
 
 
 	<build>
-		<finalName>wicket-spring-hib</finalName>
+		<finalName>spring-hibernate</finalName>
 
 		<!-- <resources>
 			<resource>
