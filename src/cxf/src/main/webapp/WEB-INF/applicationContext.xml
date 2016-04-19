@@ -46,7 +46,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="dao.post" class="org.assembly.nornas.repository.PostDAO" />
 	
 	<bean id="postsRest" class="org.assembly.nornas.web.rest.post.PostsRest">
-		<property name="postDAO" ref="dao.post" />
+		<property name="postRepository" ref="dao.post" />
 	</bean>
 
 </beans>

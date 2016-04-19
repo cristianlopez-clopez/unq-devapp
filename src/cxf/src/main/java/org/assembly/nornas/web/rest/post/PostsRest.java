@@ -27,13 +27,13 @@ public class PostsRest {
 
     public static final int NUMBER_OF_POST = 10;
 
-    private PostRepository postDAO;
+    private PostRepository postRepository;
 
     @GET
     @Path("/{from}")
     @Produces("application/json")
     public List<Post> findPostsPublishedByBlogId(@PathParam("from") final Integer from) {
-        List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
+        List<Post> posts = postRepository.getPosts(from, NUMBER_OF_POST, "");
         return posts;
     }
 
@@ -41,7 +41,7 @@ public class PostsRest {
     @Path("/byAuthor/{id}")
     @Produces("application/json")
     public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
-        List<Post> posts = postDAO.getPosts(id);
+        List<Post> posts = postRepository.getPosts(id);
         return posts;
     }
 
@@ -49,17 +49,17 @@ public class PostsRest {
     @Path("/count")
     @Produces("application/json")
     public Integer countPostsPublishedByBlogId(@DefaultValue(StringUtils.EMPTY) @QueryParam("tag") final String tag) {
-        return postDAO.getcount(tag);
+        return postRepository.getcount(tag);
     }
 
     @GET
     @Path("/tags")
     @Produces("application/json")
     public Set<String> getTagsByBlogId() {
-        return postDAO.getTags();
+        return postRepository.getTags();
     }
 
-    public void setPostDAO(final PostRepository postDAO) {
-        this.postDAO = postDAO;
+    public void setPostRepository(final PostRepository postDAO) {
+        postRepository = postDAO;
     }
 }

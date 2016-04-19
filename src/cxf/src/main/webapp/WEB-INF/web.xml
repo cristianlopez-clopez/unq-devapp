@@ -12,32 +12,24 @@
     	<param-value>/WEB-INF/applicationContext*.xml</param-value>
 	</context-param>
 
-	<servlet>
-		<servlet-name>ClickServlet</servlet-name>
-		<servlet-class>org.apache.click.ClickServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
+	<listener>
+   		 <listener-class>
+   	 		  org.springframework.web.context.ContextLoaderListener
+   			 </listener-class>
+  	</listener>
+
 
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
-		<display-name>CXF Servlet</display-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	<servlet-mapping>
-		<servlet-name>ClickServlet</servlet-name>
-		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping>
 
 
 	<servlet-mapping>
 		<servlet-name>CXFServlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
-
-	<welcome-file-list>
-		<welcome-file>redirect.html</welcome-file>
-	</welcome-file-list>
 
 </web-app>
