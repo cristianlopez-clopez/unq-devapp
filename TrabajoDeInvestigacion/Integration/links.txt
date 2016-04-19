@@ -1,6 +1,0 @@
-http://www.springsource.org/spring-integration
-
-http://www.eaipatterns.com/
-
-
-http://www.manning.com/fisher/
