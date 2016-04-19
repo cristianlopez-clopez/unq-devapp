@@ -24,6 +24,7 @@ public class PersonRepository extends HibernateGenericDAO<Person> implements Gen
                 criteria.add(Restrictions.like("name", "%" + pattern + "%"));
                 return criteria.list();
             }
+
         });
     }
 

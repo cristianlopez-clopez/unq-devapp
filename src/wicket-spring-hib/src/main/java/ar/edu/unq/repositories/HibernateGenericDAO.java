@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import ar.edu.unq.model.Car;
-
 /**
  * Generic hibernate DAO
  * 
@@ -24,8 +22,14 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
         List<Long> list = this.getHibernateTemplate().find(
                 "select count(*) from " + this.persistentClass.getName() + " o");
 
-        this.getHibernateTemplate().execute(new HibernateCallBack<Car>() {
-        });
+        // this.getHibernateTemplate().execute(new HibernateCallback<Car>() {
+        //
+        // @Override
+        // public Car doInHibernate(final Session session) throws
+        // HibernateException, SQLException {
+        // throw new UnsupportedOperationException();
+        // }
+        // });
         Long count = list.get(0);
         return count.intValue();
 

@@ -24,7 +24,7 @@ import org.assembly.nornas.repository.PostRepository;
  */
 @Path("/posts")
 public class PostsRest {
-    
+
     public static final int NUMBER_OF_POST = 10;
 
     private PostRepository postDAO;
@@ -58,8 +58,6 @@ public class PostsRest {
     public Set<String> getTagsByBlogId() {
         return postDAO.getTags();
     }
-
-
 
     public void setPostDAO(final PostRepository postDAO) {
         this.postDAO = postDAO;

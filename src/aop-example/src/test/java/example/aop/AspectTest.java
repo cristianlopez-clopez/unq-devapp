@@ -6,23 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"/aspects-context.xml"})
+@ContextConfiguration({ "/aspects-context.xml" })
 public class AspectTest {
 
-	@Autowired
+    @Autowired
     private Persona persona;
 
-    public void setPersona(final Persona unaPersona) {
-        persona = unaPersona;
+    public void setPersona(final Persona persona) {
+        this.persona = persona;
     }
 
     @Test
     public void testAspects() {
+        // Persona p = new Persona();
+
         persona.comprar();
     }
-
-    
 
 }

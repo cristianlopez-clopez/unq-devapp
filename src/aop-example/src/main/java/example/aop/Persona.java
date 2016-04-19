@@ -2,7 +2,7 @@ package example.aop;
 
 public class Persona {
 
-    private String dialogo = "Necesitaria un desodorante";
+    private String dialogo = "Necesitaría aspirina";
 
     public Persona() {
     }
@@ -12,6 +12,7 @@ public class Persona {
     }
 
     public void comprar() {
+
         System.out.println(dialogo);
     }
 
