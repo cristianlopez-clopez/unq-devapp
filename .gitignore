@@ -6,3 +6,8 @@ src/spring-hibernate/logapp.log
 src/cxf/target/**
 src/cxf/.project
 src/cxf/.project
+*.log
+src/spring-hibernate/logapp.log
+src/aop-example/target/classes/aspects-context.xml
+src/aop-example/target/classes/example/aop/aspects/MalaOndaAfterAspect.class
+src/spring-hibernate/logapp.log

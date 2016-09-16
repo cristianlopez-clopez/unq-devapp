@@ -7,7 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * Generic hibernate DAO
- * 
+ *
  * @param <T>
  */
 public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport implements GenericRepository<T>, Serializable {
@@ -16,11 +16,10 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
 
     protected Class<T> persistentClass = this.getDomainClass();
 
-    @Override
     @SuppressWarnings("unchecked")
     public int count() {
-        List<Long> list = this.getHibernateTemplate().find(
-                "select count(*) from " + this.persistentClass.getName() + " o");
+        List<Long> list = (List<Long>) this.getHibernateTemplate()
+                .find("select count(*) from " + this.persistentClass.getName() + " o");
 
         // this.getHibernateTemplate().execute(new HibernateCallback<Car>() {
         //
@@ -35,45 +34,37 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
 
     }
 
-    @Override
     public void delete(final T entity) {
         this.getHibernateTemplate().delete(entity);
     }
 
-    @Override
     public void deleteById(final Serializable id) {
         T obj = this.findById(id);
         this.getHibernateTemplate().delete(obj);
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
     public List<T> findAll() {
-        return this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
+        List<T> find = (List<T>) this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
+        return find;
 
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
     public List<T> findByExample(final T exampleObject) {
         return this.getHibernateTemplate().findByExample(exampleObject);
 
     }
 
-    @Override
     public T findById(final Serializable id) {
         return this.getHibernateTemplate().get(this.persistentClass, id);
     }
 
     protected abstract Class<T> getDomainClass();
 
-    @Override
     public void save(final T entity) {
         this.getHibernateTemplate().save(entity);
         this.getHibernateTemplate().flush();
     }
 
-    @Override
     public void update(final T entity) {
         this.getHibernateTemplate().update(entity);
     }

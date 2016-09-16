@@ -1,9 +1,9 @@
 package ar.edu.unq;
-import java.math.BigDecimal;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 import junit.framework.TestCase;
-
 
 public class ItemQuantityTest extends TestCase {
 
@@ -220,6 +220,7 @@ public class ItemQuantityTest extends TestCase {
 
     private void assertContainsExactlyOneLineItem(final Invoice invoice, final LineItem expected) {
         List<LineItem> lineItems = invoice.getLineItems();
+        assert lineItems.size(),1
         if (lineItems.size() == 1) {
             LineItem actItem = lineItems.get(0);
             assertEquals("invoice", expected, actItem);

@@ -6,26 +6,16 @@
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Spring-Hibernate Maven Webapp</name>
-	<url>http://maven.apache.org</url>
 
-
-
-
-	<parent>
-		<groupId>ar.edu.unq</groupId>
-		<artifactId>aunq-parent</artifactId>
-		<version>0.1-SNAPSHOT</version>
-	</parent>
-
-
-	<scm>
-		<connection>scm:svn:https://github.com/cristianelopez/unq-devapp/tree/master/src/spring-hibernate</connection>
-		<url>https://github.com/cristianelopez/unq-devapp/tree/master/src/spring-hibernate</url>
-	</scm>
+	<properties>
+		<jetty.version>6.1.24</jetty.version>
+		<spring.version>4.1.3.RELEASE</spring.version>
+		<!-- // <hibernate.version>3.6.0.Final</hibernate.version> -->
+		<hibernate.version>5.1.1.Final</hibernate.version>
+	</properties>
 
 
 	<dependencies>
-
 		<!-- /////// -->
 		<!-- Common - -->
 		<!-- /////// -->
@@ -50,7 +40,7 @@
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
+			<version>3.2.2</version>
 		</dependency>
 
 		<!-- /////// -->
@@ -156,7 +146,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>3.6.0.Final</version>
+			<version>${hibernate.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>jta</artifactId>
@@ -175,12 +165,12 @@
 		<!-- <dependency> <groupId>org.log4jdbc</groupId> <artifactId>log4jdbc</artifactId> 
 			<version>4.1.2</version> </dependency> -->
 
-			
-<!--		<dependency>-->
-<!--			<groupId>org.log4jdbc</groupId>-->
-<!--			<artifactId>log4jdbc</artifactId>-->
-<!--			<version>4.1.2</version>-->
-<!--		</dependency>-->
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.log4jdbc</groupId> -->
+		<!-- <artifactId>log4jdbc</artifactId> -->
+		<!-- <version>4.1.2</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -210,7 +200,7 @@
 			<version>3.12.1.GA</version>
 		</dependency>
 
-		
+
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty</artifactId>
@@ -254,130 +244,6 @@
 
 	</dependencies>
 
-	<properties>
-		<jetty.version>6.1.24</jetty.version>
-		<spring.version>3.0.5.RELEASE</spring.version>
-	</properties>
-
-
-	<build>
-		<finalName>spring-hibernate</finalName>
-
-		<!-- <resources>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/resources</directory>
-			</resource>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>  -->
-
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
-
-	</build>
-
-	<profiles>
-		<profile>
-
-			<properties>
-				<deploy.hostname>localhost</deploy.hostname>
-				<deploy.port>8081</deploy.port>
-				<deploy.artifactId>${artifactId}</deploy.artifactId>
-				<deploy.groupId>${groupId}</deploy.groupId>
-			</properties>
-
-			<id>deploy-test</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.cargo</groupId>
-						<artifactId>cargo-maven2-plugin</artifactId>
-
-						<configuration>
-							<wait>true</wait>
-							<container>
-								<containerId>tomcat6x</containerId>
-								<type>remote</type>
-							</container>
-
-							<configuration>
-								<type>runtime</type>
-								<properties>
-									<cargo.hostname>${deploy.hostname}</cargo.hostname>
-									<cargo.servlet.port>${deploy.port}</cargo.servlet.port>
-									<cargo.remote.username>tomcat-deploy</cargo.remote.username>
-									<cargo.remote.password>tomcat-deploy</cargo.remote.password>
-								</properties>
-							</configuration>
-
-							<deployables>
-								<deployable>
-									<groupId>${deploy.groupId}</groupId>
-									<artifactId>${deploy.artifactId}</artifactId>
-									<type>war</type>
-									<pingURL>http://${deploy.hostname}:${deploy.port}/${deploy.artifactId}</pingURL>
-									<pingTimeout>20000</pingTimeout>
-									<properties>
-										<context>${deploy.artifactId}</context>
-									</properties>
-								</deployable>
-							</deployables>
-
-
-							<executions>
-								<execution>
-									<id>start-container</id>
-									<phase>pre-integration-test</phase>
-									<goals>
-										<goal>deployer-deploy</goal>
-									</goals>
-								</execution>
-								<execution>
-									<id>stop-container</id>
-									<phase>post-integration-test</phase>
-									<goals>
-										<goal>deployer-undeploy</goal>
-
-									</goals>
-								</execution>
-								<execution>
-									<id>verify-deploy</id>
-									<phase>install</phase>
-									<goals>
-										<goal>deployer-deploy</goal>
-									</goals>
-								</execution>
-								<execution>
-									<id>clean-undeploy</id>
-									<phase>pre-clean</phase>
-									<goals>
-										<goal>deployer-undeploy</goal>
-									</goals>
-								</execution>
-							</executions>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 
 </project>
