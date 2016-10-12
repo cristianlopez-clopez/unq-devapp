@@ -4,6 +4,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
 	<display-name>Web Client Application</display-name>
 	<description>Web Client Application</description>
 
