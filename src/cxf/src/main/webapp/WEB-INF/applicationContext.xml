@@ -26,7 +26,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 <!-- =========Servicios  ========= -->
 <!-- =========================== -->
 
-	<jaxrs:server id="post"  > 
+	<jaxrs:server id="post" address="/"  > 
 		<jaxrs:serviceBeans>
 			<ref bean="postsRest" />
 		</jaxrs:serviceBeans>
