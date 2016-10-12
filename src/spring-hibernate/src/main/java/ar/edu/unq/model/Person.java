@@ -5,48 +5,51 @@ import java.util.List;
 
 public class Person extends Entity {
 
-	private static final long serialVersionUID = 6716714837006810519L;
-	private int age;
-	private List<Car> cars = new ArrayList<Car>();
-	private String name;
+    private static final long serialVersionUID = 6716714837006810519L;
 
-	public Person() {
-		super();
-	}
+    private int age = 1900;
 
-	public Person(final String name, final int age) {
-		super();
-		this.name = name;
-		this.age = age;
+    private List<Car> cars = new ArrayList<Car>();
 
-	}
+    private String name = "NameDefault";
 
-	public void addCar(final Car car) {
-		this.getCars().add(car);
-	}
+    public Person() {
+        super();
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public Person(final String name, final int age) {
+        super();
+        this.name = name;
+        this.age = age;
 
-	public List<Car> getCars() {
-		return cars;
-	}
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void addCar(final Car car) {
+        this.getCars().add(car);
+    }
 
-	public void setAge(final int age) {
-		this.age = age;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	public void setCars(final List<Car> cars) {
-		this.cars = cars;
-	}
+    public List<Car> getCars() {
+        return cars;
+    }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(final int age) {
+        this.age = age;
+    }
+
+    public void setCars(final List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
 
 }

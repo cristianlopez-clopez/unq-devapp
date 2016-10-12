@@ -1,13 +1,12 @@
 package ar.edu.unq.repositories;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate4.HibernateCallback;
 
 import ar.edu.unq.model.Person;
 
@@ -19,7 +18,7 @@ public class PersonRepository extends HibernateGenericDAO<Person> implements Gen
     public List<Person> filterPeople(final String pattern) {
         return (List<Person>) this.getHibernateTemplate().execute(new HibernateCallback() {
             @Override
-            public List<Person> doInHibernate(final Session session) throws HibernateException, SQLException {
+            public List<Person> doInHibernate(final Session session) throws HibernateException {
                 Criteria criteria = session.createCriteria(Person.class);
                 criteria.add(Restrictions.like("name", "%" + pattern + "%"));
                 return criteria.list();

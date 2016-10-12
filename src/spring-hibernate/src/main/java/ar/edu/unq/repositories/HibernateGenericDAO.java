@@ -3,7 +3,7 @@ package ar.edu.unq.repositories;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 /**
  * Generic hibernate DAO
