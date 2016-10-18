@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.assembly.nornas.web.rest.post;
 
@@ -12,14 +12,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang.StringUtils;
 import org.assembly.nornas.model.Post;
 import org.assembly.nornas.repository.PostRepository;
 
 /**
- * 
- * 
+ *
+ *
  * @author cristian
  */
 @Path("/posts")
@@ -44,9 +45,12 @@ public class PostsRest {
     @GET
     @Path("/byAuthor/{id}")
     @Produces("application/json")
-    public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
+    public Response findPostsPublishedByAuthorId(@PathParam("id") final String id) {
         List<Post> posts = postRepository.getPosts(id);
-        return posts;
+        if (posts.isEmpty()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.ok(posts).build();
     }
 
     @GET
