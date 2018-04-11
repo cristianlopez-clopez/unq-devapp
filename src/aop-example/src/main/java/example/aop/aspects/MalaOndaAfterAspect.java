@@ -10,6 +10,6 @@ public class MalaOndaAfterAspect {
 
     @AfterReturning("execution(* comprar(..))")
     public void zaraza() {
-        System.out.println("Maldito ..");
+        System.out.println("Maldito Bastardo ..");
     }
 }

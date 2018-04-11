@@ -10,3 +10,5 @@ http://localhost:8080/cxf/rest/posts/count
 http://localhost:8080/cxf/rest/posts/byAuthor/Pepe
 
 
+
+

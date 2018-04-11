@@ -19,9 +19,7 @@ public class AspectTest {
 
     @Test
     public void testAspects() {
-        // Persona p = new Persona();
-
-        persona.comprar();
+          persona.comprar();
     }
 
 }
