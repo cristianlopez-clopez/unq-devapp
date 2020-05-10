@@ -9,19 +9,16 @@ http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 	<aop:aspectj-autoproxy />
 
 
-	<bean id="persona" class="example.aop.Persona">
+	<bean id="personabean" class="example.aop.Persona">
 		<property name="dialogo" value="Necesitaría ibuprofeno .." />
 	</bean>
 	
-	<bean id="aroundBuenaOnda" class="example.aop.aspects.BuenaOndaAdviceAspect"/>
-	 
+<!-- 	<bean id="aroundBuenaOnda" class="example.aop.aspects.BuenaOndaAdviceAspect"/>  -->
+	
+<!--   <bean id="afterMalaOnda" class="example.aop.aspects.MalaOndaAfterAspect" />  -->
 
- <!--  <bean id="afterMalaOnda" class="example.aop.aspects.MalaOndaAfterAspect" />
-
-
-
-<bean id="beforeMalaOnda" class="example.aop.aspects.MalaOndaBeforeAspect" />
+<!--  <bean id="beforeMalaOnda" class="example.aop.aspects.MalaOndaBeforeAspect" /> -->
    
-   <bean id="aroundBuenaOnda" class="example.aop.aspects.BuenaOndaAdviceAspect"/>-->
+  <bean id="aroundBuenaOnda" class="example.aop.aspects.BuenaOndaAdviceAspect"/>
 
 </beans>

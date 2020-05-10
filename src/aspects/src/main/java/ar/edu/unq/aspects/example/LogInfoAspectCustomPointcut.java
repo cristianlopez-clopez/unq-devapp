@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Order(0)
-public class LogExecutionTimeAspectCustomPointcut  {
+public class LogInfoAspectCustomPointcut  {
 
-	static Logger logger = LoggerFactory.getLogger(LogExecutionTimeAspectCustomPointcut.class);
+	static Logger logger = LoggerFactory.getLogger(LogInfoAspectCustomPointcut.class);
 	
 	/// CUSTOM  POINTCUT////
 	@Pointcut("execution(* ar.edu.unq.aspects.example.StarterServiceController.*(..))")

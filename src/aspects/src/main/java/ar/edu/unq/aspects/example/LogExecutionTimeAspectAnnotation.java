@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(1)
 public class LogExecutionTimeAspectAnnotation {
 
 	static Logger logger = LoggerFactory.getLogger(LogExecutionTimeAspectAnnotation.class);
