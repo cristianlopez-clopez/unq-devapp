@@ -22,11 +22,11 @@ public class LogExecutionTimeAspectAnnotation {
 	public Object logExecutionTimeAnnotation(ProceedingJoinPoint joinPoint) throws Throwable {
 		logger.info("/////// AROUND START  logExecutionTime annotation //////");
 		long start = System.currentTimeMillis();
-		Object proceed = joinPoint.proceed();
+		//Object proceed = joinPoint.proceed();
 		long executionTime = System.currentTimeMillis() - start;
 		logger.info("/////// " + joinPoint.getSignature() + " executed in " + executionTime + "ms");
 		logger.info("/////// AROUND FINISH  logExecutionTime annotation ///////");
-		return proceed;
+		return null;
 	}
 
 
