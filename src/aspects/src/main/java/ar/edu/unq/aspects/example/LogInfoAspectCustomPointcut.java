@@ -17,7 +17,7 @@ public class LogInfoAspectCustomPointcut  {
 	static Logger logger = LoggerFactory.getLogger(LogInfoAspectCustomPointcut.class);
 	
 	/// CUSTOM  POINTCUT////
-	@Pointcut("execution(* ar.edu.unq.aspects.example.StarterServiceController.*(..))")
+	@Pointcut("execution(* ar.edu.unq.aspects.example.controller.RestExampleController.*(..))")
 	public void methodsStarterServicePointcut() {
 	}
 

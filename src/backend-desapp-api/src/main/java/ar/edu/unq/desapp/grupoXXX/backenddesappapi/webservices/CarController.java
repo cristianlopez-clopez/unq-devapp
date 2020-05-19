@@ -1,29 +1,32 @@
-package ar.edu.unq.desapp.grupoXXX.webservices;
+package ar.edu.unq.desapp.grupoXXX.backenddesappapi.webservices;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ar.edu.unq.desapp.grupoXXX.services.CarService;
+import ar.edu.unq.desapp.grupoXXX.backenddesappapi.model.Car;
+import ar.edu.unq.desapp.grupoXXX.backenddesappapi.services.CarService;
 
 @RestController
+@EnableAutoConfiguration
 public class CarController {
 
     @Autowired
     private CarService carService;
 
-    @RequestMapping(value = "/api/car/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<?> getCar(@PathVariable("id") String id) {
-        carService.findByID(id);
-        return ResponseEntity.ok().build();
+    @GetMapping("/api/cars")
+    public List<Car> allCars() {
+        List<Car> list = carService.findAll();;
+        return list;
     }
     
     @RequestMapping(value = "/api/version", method = RequestMethod.GET)

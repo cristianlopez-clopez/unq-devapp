@@ -1,6 +1,4 @@
-package ar.edu.unq.desapp.grupoXXX.model;
-
-import java.util.Date;
+package ar.edu.unq.desapp.grupoXXX.backenddesappapi.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +12,23 @@ import javax.persistence.Table;
 public class Car {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column
-	private String patente;
+	private String carPatent;
 
-	
+	@Column
+	private String model;
+
+	public Car() {
+		super();
+	}
+
+	public Car(Integer id, String carPatent, String model) {
+		super();
+		this.id = id;
+		this.carPatent = carPatent;
+		this.model = model;
+	}
+
 }
