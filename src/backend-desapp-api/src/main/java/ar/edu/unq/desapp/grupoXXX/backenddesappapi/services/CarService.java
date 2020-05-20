@@ -11,12 +11,13 @@ import ar.edu.unq.desapp.grupoXXX.backenddesappapi.repositories.CarRepository;
 
 
 @Service
-@Transactional
+
 public class CarService  {
 
 	@Autowired
 	private CarRepository  repository;
 	
+	@Transactional
 	public Car save(Car model) {
 		return this.repository.save(model);
 	}
