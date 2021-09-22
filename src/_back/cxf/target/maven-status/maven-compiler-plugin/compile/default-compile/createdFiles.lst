@@ -1,0 +1,7 @@
+org\assembly\nornas\fixture\PostFixture.class
+org\assembly\nornas\repository\PostDAO.class
+org\assembly\nornas\web\rest\post\PostsRest.class
+org\assembly\nornas\repository\PostDAO$1.class
+org\assembly\nornas\repository\PostRepository.class
+org\assembly\nornas\model\Post.class
+org\assembly\nornas\model\StatePost.class
