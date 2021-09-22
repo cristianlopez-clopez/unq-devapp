@@ -17,16 +17,16 @@ public class InitServiceInMemory {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	@Value("${pring.datasource.driverClassName:NONE}")
+	@Value("${spring.datasource.driverClassName:NONE}")
 	private String className;
-	
+
 	@Autowired
 	private CarService carService;
 
 	@PostConstruct
 	public void initialize() {
 		if (className.equals("org.h2.Driver")) {
-			logger.warn("Init Data Using H2 DB");
+			logger.info("Init Data Using H2 DB");
 			fireInitialData();
 		}
 	}
@@ -34,5 +34,8 @@ public class InitServiceInMemory {
 	private void fireInitialData() {
 		Car car = new Car(1, "PNA 879", "Renault Clio");
 		carService.save(car);
+		Car car2 = new Car(2, "PNA 880", "Renault Clio2");
+		carService.save(car2);
+
 	}
 }

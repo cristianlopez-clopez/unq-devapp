@@ -16,3 +16,7 @@ src/aop-example/target/maven-status/maven-compiler-plugin/compile/default-compil
 src/aop-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 src/aop-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
 src/cxf.rar
+src/clean-code-examples/target/clean-code-examples-0.1-SNAPSHOT.jar
+src/clean-code-examples/target/jacoco.exec
+src/clean-code-examples/target/maven-archiver/pom.properties
+src/clean-code-examples/target/*

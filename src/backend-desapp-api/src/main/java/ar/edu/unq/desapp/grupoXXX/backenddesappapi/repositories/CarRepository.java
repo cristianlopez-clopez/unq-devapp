@@ -9,13 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import ar.edu.unq.desapp.grupoXXX.backenddesappapi.model.Car;
 
-
 @Configuration
 @Repository
 public interface CarRepository extends CrudRepository<Car, Integer> {
 
 	Optional<Car> findById(Integer id);
-	
+
 	List<Car> findAll();
 
 }

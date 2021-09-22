@@ -18,24 +18,31 @@ import ar.edu.unq.desapp.grupoXXX.backenddesappapi.services.CarService;
 
 @RestController
 @EnableAutoConfiguration
-public class CarController {
+public class CarRestService {
 
-    @Autowired
-    private CarService carService;
+	@Autowired
+	private CarService carService;
 
-    @GetMapping("/api/cars")
-    public List<Car> allCars() {
-        List<Car> list = carService.findAll();;
-        return list;
-    }
-    
-    @RequestMapping(value = "/api/version", method = RequestMethod.GET)
+	// CarService carService = new CarService();
+
+	@GetMapping("/api/cars")
+	public ResponseEntity<?> allCars() {
+		List<Car> list = otroMetodo();
+		return ResponseEntity.ok().body(list);
+	}
+
+	private List<Car> otroMetodo() {
+		List<Car> list = carService.findAll();
+		return list;
+	}
+
+	@RequestMapping(value = "/api/version", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getVersion() {
-    	String version = "0.2.1";
+		String version = "0.2.2";
 		Map<String, String> resultado = new HashMap<String, String>();
 		resultado.put("version", version);
 		return ResponseEntity.ok().body(resultado);
 	}
-   
+
 }

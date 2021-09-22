@@ -9,14 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unq.desapp.grupoXXX.backenddesappapi.model.Car;
 import ar.edu.unq.desapp.grupoXXX.backenddesappapi.repositories.CarRepository;
 
-
 @Service
-
-public class CarService  {
+public class CarService {
 
 	@Autowired
-	private CarRepository  repository;
-	
+	private CarRepository repository;
+
 	@Transactional
 	public Car save(Car model) {
 		return this.repository.save(model);
@@ -26,6 +24,7 @@ public class CarService  {
 		return this.repository.findById(id).get();
 	}
 
+	@Transactional
 	public List<Car> findAll() {
 		return this.repository.findAll();
 	}
