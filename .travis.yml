@@ -2,7 +2,7 @@ language: java
 jdk: oraclejdk11
 
 before_install:
-  - cd src\backend-desapp-api
+  - cd src/backend-desapp-api
   - chmod +x gradlew
 
 script:
